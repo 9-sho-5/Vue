@@ -6,9 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>category_filter</title>
     <link rel="stylesheet" href="./src/css/style.css">
+    <script src="https://unpkg.com/vue@3.0.11/dist/vue.global.js"></script>
 </head>
 <body>
-    
+    <div id="app">
+          <div class="category-nav">
+            <label>
+              <input type="radio" v-model="category" value=""> All
+            </label>
+            <label>
+              <input type="radio" v-model="category" value="Dog"> Dog
+            </label>
+            <label>
+              <input type="radio" v-model="category" value="Cat"> Cat
+            </label>
+          </div>
+           
+        <ul class="category-list">
+            <li v-for="image in filterByCategory" :key="image.index">
+                <img :src="image.src" alt="">
+            </li>
+        </ul>
+    </div>
 </body>
 <script src="./src/js/main.js"></script>
 </html>
